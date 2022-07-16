@@ -1,38 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+*,*:after ,*:before { 
+  box-sizing:border-box; 
+}
 .App {
-  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+
+}
+ul{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+  font-weight: bold;
+}
+li{
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image{
+  width: 250px;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+input{
+  margin-bottom: 1rem;
+}
+.inputWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profileCardWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.profileInfoWrapper{
+  padding: 1rem;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.popup{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.userCardsWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.cardWrapper{
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.cardWrapper:hover{
+  position: relative;
+  top: 2px;
+  left: 2px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contactsWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.contactWrapper{
+  display: flex;
+}
+.infoWrapper{
+  min-width: 200px;
+  padding: 1rem;
+}
+
+.chatWrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sendMessage{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  min-width: 300px
+}
+.contactImage{
+  width: 100px;
+}
+.contactImage:hover{
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  right:1px
+}
+.none{
+  display: none;
+}
+.smsWrap{
+  max-width: 400px;
+  max-height: 50vh;
+  overflow: auto;
+  word-wrap: break-word;
+}
+button{
+ 
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 10%;
+}
+
+button:hover,
+button:focus {
+  opacity: .75;
+}
+.profileButton{
+ 
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 70%;
+}
+
+.profileButton:hover,
+.profileButton:focus {
+  opacity: .75;
 }
