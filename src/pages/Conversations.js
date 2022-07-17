@@ -13,29 +13,28 @@ const Conversations = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let testArr = [];
+    let filteredUsers = [];
     const senderMsgs = msgs.messages.filter((x) =>
       x.participants.some((names) => names === allUsers.loggedIn.email)
     );
-    // console.log(senderMsgs);
+
     senderMsgs.map((x) => {
       const index = x.participants.findIndex(
         (x) => x !== allUsers.loggedIn.email
       );
-      if (testArr.includes(x.participants[index])) return;
-      testArr.push(x.participants[index]);
+      if (filteredUsers.includes(x.participants[index])) return;
+      filteredUsers.push(x.participants[index]);
     });
 
     setContactsProfile(
       allUsers.users.filter((el) => {
-        return testArr.find((element) => {
+        return filteredUsers.find((element) => {
           return element === el.email;
         });
       })
     );
-    // console.log(contacts);
-    // console.log(contactsProfile);
-  }, [msgs.messages]);
+    
+  }, [msgs.messages.length, allUsers.users]);
 
   function goToChat(username) {
     const ownerMsgs = msgs.messages.filter((x) =>
@@ -47,9 +46,7 @@ const Conversations = () => {
     setButtonHidden("")
     setCntcsHidden("none");
     setOtherValues(username);
-    // console.log(ownerMsgs);
-    // console.log(contactMsgs);
-    // console.log(allUsers.loggedIn.email);
+    
     const chatMessages = ownerMsgs.filter((el) => {
       return contactMsgs.find((element) => {
         return element.id === el.id;
@@ -58,7 +55,7 @@ const Conversations = () => {
 
     setChatValues([...chatMessages]);
   }
-  function backToContacts(username) {
+  function backToContacts() {
     setCntcsHidden("");
     setChatValues("");
     setButtonHidden("none")
@@ -105,8 +102,8 @@ const Conversations = () => {
       </div>
       {chatValues.length > 0 ? (
         <Chat
-          ownermssg={chatValues}
-          otheruser={otherValues}
+          ownerMssg={chatValues}
+          otherUser={otherValues}
           goToChat={goToChat}
         ></Chat>
       ) : null}

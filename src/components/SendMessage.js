@@ -2,7 +2,8 @@ import { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { sendMesageReducer } from "../features/messages";
 import { blockUser } from "../features/users";
-const SendMessage = ({ reciever, goToChat }) => {
+
+const SendMessage = ({ reciever, setCounter, getCounter }) => {
   const allUsers = useSelector((state) => state.users.value);
   const msgs = useSelector((state) => state.messages.value);
   const messageRef = useRef();
@@ -19,17 +20,19 @@ const SendMessage = ({ reciever, goToChat }) => {
         (x) => x === allUsers.loggedIn.email
       );
       if (blockedUsers.length > 0) {
-        alert("User has blocked you");
+        alert("You blocked the user");
         setDisabled(true);
+        return
       }
     }
     if (allUsers.users[index2].blockedBy.length > 0) {
-      const blockedUsers = allUsers.users[index2].blockedBy.filter(
+      const blockedMyUsers = allUsers.users[index2].blockedBy.filter(
         (x) => x === reciever
       );
-      if (blockedUsers.length > 0) {
-        alert("You blocked the user");
+      if (blockedMyUsers.length > 0) {
+        alert("User has blocked you");
         setDisabled(true);
+        return
       }
     }
     console.log(index);
@@ -42,9 +45,9 @@ const SendMessage = ({ reciever, goToChat }) => {
     dispatch(sendMesageReducer(message));
     messageRef.current.value = "";
     console.log(msgs);
-    if (goToChat) {
-      goToChat(reciever);
-    }
+
+    if( setCounter) setCounter(getCounter+1)
+
   }
   function blockContact() {
     const block = {
@@ -52,7 +55,6 @@ const SendMessage = ({ reciever, goToChat }) => {
       blockedBy: allUsers.loggedIn.email,
     };
     dispatch(blockUser(block));
-    console.log(allUsers);
   }
   return (
     <div className="sendMessage" >

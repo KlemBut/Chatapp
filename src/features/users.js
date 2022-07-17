@@ -6,8 +6,8 @@ export const usersSlice = createSlice({
     value: {
       users: [
         {
-          email: "hihihi@hihihi.com",
-          password: "hihihi@hihihi.com",
+          email: "Petras!",
+          password: "Petras!",
           pic: "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg",
           role: true,
           blockedBy:[]
@@ -16,23 +16,9 @@ export const usersSlice = createSlice({
           email: "Zbigi!",
           password: "Zbigi!",
           pic: "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg",
-          role: true,
-          blockedBy:[]
-        },
-        {
-          email: "Habibi!",
-          password: "Habibi!",
-          pic: "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg",
           role: false,
           blockedBy:[]
-        },
-        {
-          email: "Petras!",
-          password: "Petras!",
-          pic: "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg",
-          role: false,
-          blockedBy:[]
-        },
+        }
       ],
       loggedIn: null,
     },

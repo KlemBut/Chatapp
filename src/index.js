@@ -10,7 +10,7 @@ import messages from "./features/messages";
 const store = configureStore({
   reducer: {
     users: users,
-    messages: messages
+    messages: messages,
   },
 });
 const root = ReactDOM.createRoot(document.getElementById("root"));
